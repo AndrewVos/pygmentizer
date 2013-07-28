@@ -15,8 +15,10 @@ func Highlight(language string, code string) string {
   io.WriteString(writer, code)
   writer.Close()
   output,err := cmd.CombinedOutput()
+
   if err != nil {
     fmt.Printf(string(output))
+    return code
   }
   return string(output)
 }
