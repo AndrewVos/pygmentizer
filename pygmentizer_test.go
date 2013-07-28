@@ -6,7 +6,8 @@ import (
 )
 
 func TestHighlightsRubyCode(t *testing.T) {
-  highlighted:= strings.TrimSpace(Highlight("ruby", "def hello\n  puts 'hi'\nend"))
+  highlighted,_ := Highlight("ruby", "def hello\n  puts 'hi'\nend")
+  highlighted = strings.TrimSpace(highlighted)
   expected:= strings.TrimSpace(`
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span>
   <span class="nb">puts</span> <span class="s1">&#39;hi&#39;</span>

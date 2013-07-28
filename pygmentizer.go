@@ -6,9 +6,10 @@ import (
   "io"
   "os/exec"
   "fmt"
+  "errors"
 )
 
-func Highlight(language string, code string) string {
+func Highlight(language string, code string) (string, error) {
   cmd:= exec.Command("/usr/bin/env", "python", pygmentizerPath(), "-l", language, "-f", "html")
   writer, _ := cmd.StdinPipe()
 
@@ -18,9 +19,9 @@ func Highlight(language string, code string) string {
 
   if err != nil {
     fmt.Printf(string(output))
-    return code
+    return code, errors.New(string(output))
   }
-  return string(output)
+  return string(output), nil
 }
 
 func pygmentizerPath() string {
