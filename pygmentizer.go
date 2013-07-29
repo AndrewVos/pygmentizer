@@ -38,6 +38,7 @@ func tempPath() string {
 }
 
 func installPygments() {
+  fmt.Printf("[pygmentizer] Installing pygments\n")
   os.MkdirAll(tempPath(), 0700)
 
   zipPath := path.Join(tempPath(), "pygments.zip")
