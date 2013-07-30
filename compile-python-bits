@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-rm pygments.zip.go
-zip -X -r pygments pygments
-go-bindata -i pygments.zip -p pygmentizer -f PygmentsZip
-rm pygments.zip
