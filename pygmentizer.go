@@ -16,7 +16,10 @@ func Highlight(language string, code string) (string, error) {
   output,err := cmd.CombinedOutput()
 
   if err != nil {
+    fmt.Println()
+    fmt.Printf("pygmentizer:")
     fmt.Printf(string(output))
+    fmt.Println()
     return code, errors.New(string(output))
   }
   return string(output), nil
